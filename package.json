@@ -1,5 +1,5 @@
 {
-  "name": "my-expo-app",
+  "name": "sleek-dialer",
   "version": "1.0.0",
   "scripts": {
     "android": "expo start --android",
@@ -13,11 +13,15 @@
   "dependencies": {
     "expo": "53.0.22",
     "expo-status-bar": "~2.2.3",
-    "nativewind": "latest",
+    "nativewind": "^4.1.23",
     "react": "19.0.0",
     "react-native": "0.79.5",
     "react-native-reanimated": "~3.17.4",
-    "react-native-safe-area-context": "5.4.0"
+    "react-native-safe-area-context": "5.4.0",
+    "expo-router": "~5.1.5",
+    "react-native-screens": "~4.11.1",
+    "expo-linking": "~7.1.7",
+    "expo-constants": "~17.1.7"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -26,10 +30,10 @@
     "eslint-config-expo": "^9.2.0",
     "eslint-config-prettier": "^10.1.2",
     "prettier": "^3.2.5",
-    "tailwindcss": "^3.4.0",
     "prettier-plugin-tailwindcss": "^0.5.11",
+    "tailwindcss": "^3.4.17",
     "typescript": "~5.8.3"
   },
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "expo-router/entry",
   "private": true
 }
