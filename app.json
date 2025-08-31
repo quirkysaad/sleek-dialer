@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "slick-dialer",
-    "slug": "slick-dialer",
-    "scheme": "slick-dialer",
+    "name": "sleek-dialer",
+    "slug": "sleek-dialer",
+    "scheme": "sleek-dialer",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,14 +21,22 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.anonymous.sleekdialer",
+      "permissions": ["android.permission.READ_CALL_LOG", "android.permission.READ_PHONE_STATE"]
     },
     "web": {
       "bundler": "metro",
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-contacts",
+        {
+          "contactsPermission": "Allow $(PRODUCT_NAME) to access your contacts."
+        }
+      ]
     ]
   }
 }

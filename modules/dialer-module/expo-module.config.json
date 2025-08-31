@@ -1,0 +1,9 @@
+{
+  "platforms": ["android"],
+  "apple": {
+    "modules": ["DialerModule", "CallModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.dialermodule.DialerModule", "expo.modules.callmodule.CallModule"]
+  }
+}
