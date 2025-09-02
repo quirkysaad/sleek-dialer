@@ -1,11 +1,20 @@
 import React from "react";
 import "../global.css";
 import { Stack } from "expo-router";
+import { StatusBar } from "react-native";
 
 const RootLayout = () => {
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    <Stack
+      screenOptions={{
+        headerShown: false,
+        contentStyle: {
+          paddingTop: StatusBar.currentHeight || 0,
+          backgroundColor: "#ddd",
+        },
+      }}
+    >
+      <Stack.Screen name="(tabs)" />
     </Stack>
   );
 };

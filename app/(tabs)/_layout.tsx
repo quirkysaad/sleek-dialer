@@ -1,29 +1,35 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
 
-export default function TabLayout() {
+const TabLayout = () => {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: "blue" }}>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: "#edc323",
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
           title: "Home",
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
+            <FontAwesome size={28} name="phone" color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="settings"
+        name="contacts"
         options={{
-          title: "Settings",
+          title: "Contacts",
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="cog" color={color} />
+            <FontAwesome size={28} name="address-book-o" color={color} />
           ),
         }}
       />
     </Tabs>
   );
-}
+};
+
+export default TabLayout;
