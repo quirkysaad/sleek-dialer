@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { View, Text, StyleSheet, SectionList } from "react-native";
 import { CallLogsModule } from "../../modules/dialer-module";
-import { CallLog, CallSection } from "../../types";
+import { CallLogProps, CallSectionProps, CallTypes } from "../../types";
 import { groupCallsByDate } from "../../utils/general-utils";
+import CallLog from "../../components/CallLog";
 
 // This screen contains dialpad and logs
 const Home = () => {
-  const [callLogs, setCallLogs] = useState<Array<CallSection>>();
+  const [callLogs, setCallLogs] = useState<Array<CallSectionProps>>();
 
   useEffect(() => {
     // Get the call logs
@@ -15,7 +16,8 @@ const Home = () => {
         const granted = await CallLogsModule.requestCallLogPermission();
 
         if (granted) {
-          const logs = (await CallLogsModule.getCallLogs()) as Array<CallLog>;
+          const logs =
+            (await CallLogsModule.getCallLogs()) as Array<CallLogProps>;
 
           const groupedCallLogs = groupCallsByDate(logs);
           setCallLogs(groupedCallLogs);
@@ -34,19 +36,23 @@ const Home = () => {
     <View>
       {callLogs && callLogs.length > 0 ? (
         <SectionList
-          className="bg-[#ddd]"
+          className="bg-background px-2"
           sections={callLogs}
-          renderItem={({ section, index }) => (
-            // Need to change this
-            <View className="bg-white rounded-lg p-4 m-2">
-              {section.data.map((item) => (
-                <View className="border-b border-gray-100 py-4" key={item.date}>
-                  <Text>{item.name}</Text>
-                </View>
-              ))}
+          renderItem={({ section, item, index }) => (
+            <CallLog
+              key={index}
+              logItem={item}
+              logIndex={index}
+              isLastLogOfSection={index === section.data.length - 1}
+            />
+          )}
+          renderSectionHeader={({ section }) => (
+            <View className="mx-5 mt-4 mb-2">
+              <Text className="text-textMuted font-semibold text-lg">
+                {section.title}
+              </Text>
             </View>
           )}
-          renderSectionHeader={({ section }) => <Text>{section.title}</Text>}
         />
       ) : (
         <Text>Logs not found</Text>

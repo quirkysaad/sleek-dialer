@@ -1,6 +1,6 @@
 export type CallTypes = 'INCOMING' | 'OUTGOING' | 'MISSED' | 'REJECTED' | 'UNKNOWN';
 
-export type CallLog = {
+export type CallLogProps = {
     date: number;
     duration: number; // in seconds
     name?: string;
@@ -8,7 +8,7 @@ export type CallLog = {
     type: CallTypes;
 }
 
-export type CallSection = {
+export type CallSectionProps = {
   title: string;  
-  data: CallLog[];
+  data: CallLogProps[];
 }

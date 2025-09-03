@@ -1,4 +1,4 @@
-import { CallLog, CallSection } from "../types";
+import { CallLogProps, CallSectionProps } from "../types";
 
 // Utility: format section title
 const formatSectionTitle = (ts: number): string => {
@@ -23,8 +23,8 @@ const formatSectionTitle = (ts: number): string => {
 };
 
 // Transform call logs → sectioned format
-export const groupCallsByDate = (calls: Array<CallLog>): Array<CallSection> => {
-  const grouped: Record<string, CallLog[]> = {};
+export const groupCallsByDate = (calls: Array<CallLogProps>): Array<CallSectionProps> => {
+  const grouped: Record<string, CallLogProps[]> = {};
 
   calls.forEach((call) => {
     const dayKey = new Date(call.date).toDateString();

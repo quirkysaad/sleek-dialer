@@ -1,21 +1,24 @@
 import React from "react";
-import "../global.css";
-import { Stack } from "expo-router";
 import { StatusBar } from "react-native";
+import { Stack } from "expo-router";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import "../global.css";
 
 const RootLayout = () => {
   return (
-    <Stack
-      screenOptions={{
-        headerShown: false,
-        contentStyle: {
-          paddingTop: StatusBar.currentHeight || 0,
-          backgroundColor: "#ddd",
-        },
-      }}
-    >
-      <Stack.Screen name="(tabs)" />
-    </Stack>
+    <GestureHandlerRootView>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          contentStyle: {
+            paddingTop: StatusBar.currentHeight,
+            backgroundColor: "#F1F1F1",
+          },
+        }}
+      >
+        <Stack.Screen name="(tabs)" />
+      </Stack>
+    </GestureHandlerRootView>
   );
 };
 
